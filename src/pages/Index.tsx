@@ -2,8 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { Button } from "@/components/ui/button";
-import { Recycle, MapPin, Route, Truck, LogIn, UserPlus, Mail, MessageCircle } from "lucide-react";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { Recycle, MapPin, Route, Truck, Mail, MessageCircle } from "lucide-react";
+import AppHeader from "@/components/AppHeader";
 import tutorialReport from "@/assets/tutorial-report.png";
 import tutorialMap from "@/assets/tutorial-map.png";
 
