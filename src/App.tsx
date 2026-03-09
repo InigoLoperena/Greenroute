@@ -15,14 +15,8 @@ import Auth from "./pages/Auth";
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Report = lazy(() => import("./pages/Report"));
 const MapView = lazy(() => import("./pages/MapView"));
-const Marketplace = lazy(() => import("./pages/Marketplace"));
-const CreatePickupRequest = lazy(() => import("./pages/CreatePickupRequest"));
-const PickupRequestDetail = lazy(() => import("./pages/PickupRequestDetail"));
 const Profile = lazy(() => import("./pages/Profile"));
-const MyRequests = lazy(() => import("./pages/MyRequests"));
-const MyBids = lazy(() => import("./pages/MyBids"));
 const MyCompany = lazy(() => import("./pages/MyCompany"));
-const DemoPreview = lazy(() => import("./pages/DemoPreview"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -44,16 +38,10 @@ const App = () => (
             <Suspense fallback={<PageLoader />}>
               <Routes>
                 <Route path="/" element={<Index />} />
-                <Route path="/demo" element={<DemoPreview />} />
                 <Route path="/auth" element={<Auth />} />
                 <Route path="/dashboard" element={<Dashboard />} />
                 <Route path="/report" element={<Report />} />
                 <Route path="/map" element={<MapView />} />
-                <Route path="/marketplace" element={<Marketplace />} />
-                <Route path="/marketplace/new" element={<CreatePickupRequest />} />
-                <Route path="/marketplace/:id" element={<PickupRequestDetail />} />
-                <Route path="/my-requests" element={<MyRequests />} />
-                <Route path="/my-bids" element={<MyBids />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/my-company" element={<MyCompany />} />
                 <Route path="*" element={<NotFound />} />
