@@ -94,22 +94,7 @@ const Profile = () => {
           </CardContent>
         </Card>
 
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-base">{t("setupLocation")}</CardTitle>
-            <CardDescription>{t("locationProfileDesc")}</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <LocationPicker
-              latitude={profileLat}
-              longitude={profileLng}
-              onLocationChange={(lat, lng) => {
-                setProfileLat(lat);
-                setProfileLng(lng);
-              }}
-            />
-          </CardContent>
-        </Card>
+
 
         <Button className="w-full gap-2" size="lg" onClick={handleSave} disabled={saving}>
           <Save className="h-4 w-4" />
