@@ -9,7 +9,8 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
-import { ArrowLeft, Send, Building2, Save } from "lucide-react";
+import { Send, Building2, Save } from "lucide-react";
+import AppHeader from "@/components/AppHeader";
 
 const MyCompany = () => {
   const { user, loading: authLoading } = useAuth();
