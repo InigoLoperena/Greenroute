@@ -8,9 +8,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
-import { LogOut, Recycle, UserCircle, Building2, Crosshair, Check, Navigation } from "lucide-react";
-import NotificationBell from "@/components/NotificationBell";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { Building2, Crosshair, Check, Navigation } from "lucide-react";
+import AppHeader from "@/components/AppHeader";
 import LocationPicker from "@/components/LocationPicker";
 import MapPreview from "@/components/MapPreview";
 
