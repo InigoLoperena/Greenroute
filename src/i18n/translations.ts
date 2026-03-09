@@ -332,7 +332,7 @@ export const translations = {
     featureRouteDesc: "Se genera automáticamente la ruta más corta para pasar por todos los puntos reportados.",
     featureCollectTitle: "Recoger",
     featureCollectDesc: "El camión sigue la ruta optimizada, recoge los residuos y los marca como completados.",
-    footerTagline: "Ecoroute — Gestión circular inteligente de residuos",
+    footerTagline: "Ecoroute — Sistema circular de gestión de residuos",
     footerProduct: "Producto",
     footerCompany: "Empresa",
     footerAbout: "Sobre nosotros",
