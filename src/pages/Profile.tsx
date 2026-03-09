@@ -6,8 +6,8 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { toast } from "sonner";
-import { ArrowLeft, User, Save } from "lucide-react";
+import { User, Save } from "lucide-react";
+import AppHeader from "@/components/AppHeader";
 import LocationPicker from "@/components/LocationPicker";
 
 const Profile = () => {
