@@ -221,8 +221,8 @@ const Dashboard = () => {
                     <span className="font-display font-semibold text-sm">{t("shareBtn")}</span>
                   </div>
                 )}
-                {!shareLoading && (
-                  <span className="absolute inset-0 animate-ping rounded-full bg-primary opacity-20" />
+              {!shareLoading && showPing && (
+                  <span className="absolute inset-0 rounded-full bg-primary opacity-20 animate-[ping_0.8s_ease-out_3]" />
                 )}
               </button>
               {sessionCount > 0 && (
