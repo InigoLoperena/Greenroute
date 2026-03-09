@@ -9,7 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { toast } from "sonner";
 import { User, Save } from "lucide-react";
 import AppHeader from "@/components/AppHeader";
-import LocationPicker from "@/components/LocationPicker";
+
 
 const Profile = () => {
   const { user, loading: authLoading } = useAuth();
