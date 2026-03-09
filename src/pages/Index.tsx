@@ -2,8 +2,8 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { Button } from "@/components/ui/button";
-import { Recycle, MapPin, Route, Truck, LogIn, UserPlus, Mail, MessageCircle } from "lucide-react";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { Recycle, MapPin, Route, Truck, Mail, MessageCircle } from "lucide-react";
+import AppHeader from "@/components/AppHeader";
 import tutorialReport from "@/assets/tutorial-report.png";
 import tutorialMap from "@/assets/tutorial-map.png";
 
@@ -19,33 +19,7 @@ const Index = () => {
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      <header className="border-b bg-card">
-        <div className="container mx-auto flex items-center justify-between px-4 py-4">
-          <div className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
-              <Recycle className="h-5 w-5 text-primary-foreground" />
-            </div>
-            <span className="font-display text-xl font-bold">{t("appName")}</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <LanguageSwitcher />
-            {user ? (
-              <Button size="sm" onClick={() => navigate("/dashboard")}>
-                {t("myPanel")}
-              </Button>
-            ) : (
-              <>
-                <Button variant="ghost" size="sm" onClick={() => navigate("/auth?mode=login")}>
-                  <LogIn className="h-4 w-4 mr-1" /> {t("login")}
-                </Button>
-                <Button size="sm" onClick={() => navigate("/auth?mode=register")}>
-                  <UserPlus className="h-4 w-4 mr-1" /> {t("register")}
-                </Button>
-              </>
-            )}
-          </div>
-        </div>
-      </header>
+      <AppHeader />
 
       <main className="flex-1">
         {/* Hero */}
@@ -178,7 +152,6 @@ const Index = () => {
 
           <div className="mt-10 border-t pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} Ecoroute. {t("footerRights")}</p>
-            <LanguageSwitcher />
           </div>
         </div>
       </footer>

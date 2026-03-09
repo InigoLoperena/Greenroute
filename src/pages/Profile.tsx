@@ -7,7 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { toast } from "sonner";
-import { ArrowLeft, User, Save } from "lucide-react";
+import { User, Save } from "lucide-react";
+import AppHeader from "@/components/AppHeader";
 import LocationPicker from "@/components/LocationPicker";
 
 const Profile = () => {
@@ -68,14 +69,7 @@ const Profile = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="border-b bg-card sticky top-0 z-30">
-        <div className="container mx-auto flex items-center gap-3 px-4 py-3">
-          <Button variant="ghost" size="icon" onClick={() => navigate("/dashboard")}>
-            <ArrowLeft className="h-5 w-5" />
-          </Button>
-          <h1 className="font-display text-lg font-bold">{t("myProfile")}</h1>
-        </div>
-      </header>
+      <AppHeader />
 
       <main className="container mx-auto px-4 py-6 max-w-md space-y-6">
         <Card>

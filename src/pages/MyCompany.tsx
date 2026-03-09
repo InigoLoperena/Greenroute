@@ -9,7 +9,8 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
-import { ArrowLeft, Send, Building2, Save } from "lucide-react";
+import { Send, Building2, Save } from "lucide-react";
+import AppHeader from "@/components/AppHeader";
 
 const MyCompany = () => {
   const { user, loading: authLoading } = useAuth();
@@ -67,17 +68,7 @@ const MyCompany = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <header className="border-b bg-card px-4 py-3">
-        <div className="flex items-center gap-3">
-          <Button variant="ghost" size="icon" onClick={() => navigate("/dashboard")}>
-            <ArrowLeft className="h-5 w-5" />
-          </Button>
-          <div className="flex items-center gap-2">
-            <Building2 className="h-5 w-5 text-primary" />
-            <h1 className="font-display text-lg font-bold">{t("myCompany")}</h1>
-          </div>
-        </div>
-      </header>
+      <AppHeader />
 
       <main className="container mx-auto px-4 py-6 max-w-2xl space-y-6">
         {/* Company name */}

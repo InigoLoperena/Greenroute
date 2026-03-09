@@ -7,7 +7,8 @@ import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { toast } from "sonner";
-import { ArrowLeft, Route, CheckCircle, Navigation, ExternalLink, RefreshCw, Trash2 } from "lucide-react";
+import { Route, CheckCircle, Navigation, ExternalLink, RefreshCw, Trash2 } from "lucide-react";
+import AppHeader from "@/components/AppHeader";
 import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
@@ -296,12 +297,10 @@ const MapView = () => {
 
   return (
     <div className="flex flex-col bg-background" style={{ height: "100dvh" }}>
-      <header className="border-b bg-card px-3 py-2 z-[1000] shrink-0 relative">
+      <AppHeader />
+      <div className="border-b bg-card px-3 py-2 z-[1000] shrink-0 relative">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
-            <Button variant="ghost" size="icon" className="h-8 w-8" onClick={() => navigate("/dashboard")}>
-              <ArrowLeft className="h-4 w-4" />
-            </Button>
             <h1 className="font-display text-base font-bold">{t("pickupMap")}</h1>
             <Badge variant="secondary" className="text-xs">{reports.length}</Badge>
           </div>
@@ -328,7 +327,7 @@ const MapView = () => {
             </Button>
           ))}
         </div>
-      </header>
+      </div>
 
       <div className="flex-1 min-h-0 relative z-0 isolate">
         <MapErrorBoundary>

@@ -8,9 +8,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
-import { LogOut, Recycle, UserCircle, Building2, Crosshair, Check, Navigation } from "lucide-react";
-import NotificationBell from "@/components/NotificationBell";
-import LanguageSwitcher from "@/components/LanguageSwitcher";
+import { Building2, Crosshair, Check, Navigation } from "lucide-react";
+import AppHeader from "@/components/AppHeader";
 import LocationPicker from "@/components/LocationPicker";
 import MapPreview from "@/components/MapPreview";
 
@@ -193,32 +192,7 @@ const Dashboard = () => {
 
   return (
     <div className="min-h-screen bg-background pb-24">
-      <header className="border-b bg-card sticky top-0 z-30">
-        <div className="container mx-auto flex items-center justify-between px-4 py-3">
-          <div className="flex items-center gap-3">
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary">
-              <Recycle className="h-5 w-5 text-primary-foreground" />
-            </div>
-            <div>
-              <h1 className="font-display text-lg font-bold">{company.name}</h1>
-              <p className="text-xs text-muted-foreground">{t("managementPanel")}</p>
-            </div>
-          </div>
-          <div className="flex items-center gap-2">
-            <LanguageSwitcher />
-            <NotificationBell />
-            <Button variant="outline" size="sm" onClick={() => navigate("/profile")}>
-              <UserCircle className="h-4 w-4" />
-            </Button>
-            <Button variant="outline" size="sm" onClick={() => navigate("/my-company")}>
-              <Building2 className="h-4 w-4" />
-            </Button>
-            <Button variant="ghost" size="sm" onClick={signOut}>
-              <LogOut className="h-4 w-4" />
-            </Button>
-          </div>
-        </div>
-      </header>
+      <AppHeader />
 
       <main className="container mx-auto px-4 py-6 max-w-4xl space-y-8">
         {/* Share coordinates section */}
