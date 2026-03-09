@@ -27,6 +27,14 @@ const Dashboard = () => {
   const [shareLoading, setShareLoading] = useState(false);
   const [lastReport, setLastReport] = useState<{ lat: number; lng: number } | null>(null);
   const [sessionCount, setSessionCount] = useState(0);
+  const [showPing, setShowPing] = useState(true);
+
+  useEffect(() => {
+    if (showPing) {
+      const timer = setTimeout(() => setShowPing(false), 2400);
+      return () => clearTimeout(timer);
+    }
+  }, [showPing]);
 
   useEffect(() => {
     if (!authLoading && !user) navigate("/auth");
@@ -213,8 +221,8 @@ const Dashboard = () => {
                     <span className="font-display font-semibold text-sm">{t("shareBtn")}</span>
                   </div>
                 )}
-                {!shareLoading && (
-                  <span className="absolute inset-0 animate-ping rounded-full bg-primary opacity-20" />
+              {!shareLoading && showPing && (
+                  <span className="absolute inset-0 rounded-full bg-primary opacity-20 animate-[ping_0.8s_ease-out_3]" />
                 )}
               </button>
               {sessionCount > 0 && (
