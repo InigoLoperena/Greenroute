@@ -152,7 +152,6 @@ const Index = () => {
 
           <div className="mt-10 border-t pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-xs text-muted-foreground">© {new Date().getFullYear()} Ecoroute. {t("footerRights")}</p>
-            <LanguageSwitcher />
           </div>
         </div>
       </footer>
