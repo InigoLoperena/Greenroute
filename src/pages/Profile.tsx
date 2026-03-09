@@ -5,19 +5,16 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { toast } from "sonner";
 import { User, Save } from "lucide-react";
 import AppHeader from "@/components/AppHeader";
-
 
 const Profile = () => {
   const { user, loading: authLoading } = useAuth();
   const { t } = useLanguage();
   const navigate = useNavigate();
   const [fullName, setFullName] = useState("");
-  const [profileLat, setProfileLat] = useState<number | null>(null);
-  const [profileLng, setProfileLng] = useState<number | null>(null);
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
 
@@ -29,13 +26,11 @@ const Profile = () => {
     if (!user) return;
     supabase
       .from("profiles")
-      .select("full_name, latitude, longitude")
+      .select("full_name")
       .eq("user_id", user.id)
       .maybeSingle()
       .then(({ data }) => {
         setFullName((data as any)?.full_name || "");
-        setProfileLat((data as any)?.latitude ?? null);
-        setProfileLng((data as any)?.longitude ?? null);
         setLoading(false);
       });
   }, [user]);
@@ -45,11 +40,7 @@ const Profile = () => {
     setSaving(true);
     const { error } = await supabase
       .from("profiles")
-      .update({
-        full_name: fullName,
-        latitude: profileLat,
-        longitude: profileLng,
-      } as any)
+      .update({ full_name: fullName } as any)
       .eq("user_id", user.id);
     setSaving(false);
     if (error) {
@@ -93,8 +84,6 @@ const Profile = () => {
             </div>
           </CardContent>
         </Card>
-
-
 
         <Button className="w-full gap-2" size="lg" onClick={handleSave} disabled={saving}>
           <Save className="h-4 w-4" />
