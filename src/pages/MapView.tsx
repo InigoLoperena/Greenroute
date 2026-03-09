@@ -327,7 +327,7 @@ const MapView = () => {
             </Button>
           ))}
         </div>
-      </header>
+      </div>
 
       <div className="flex-1 min-h-0 relative z-0 isolate">
         <MapErrorBoundary>
