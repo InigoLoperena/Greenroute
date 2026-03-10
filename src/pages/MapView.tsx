@@ -6,8 +6,9 @@ import { useLanguage } from "@/i18n/LanguageContext";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
-import { Route, CheckCircle, Navigation, ExternalLink, RefreshCw, Trash2 } from "lucide-react";
+import { Route, CheckCircle, Navigation, ExternalLink, RefreshCw, Trash2, MapPin, ChevronDown } from "lucide-react";
 import AppHeader from "@/components/AppHeader";
 import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap } from "react-leaflet";
 import L from "leaflet";
@@ -298,23 +299,29 @@ const MapView = () => {
   return (
     <div className="flex flex-col bg-background" style={{ height: "100dvh" }}>
       <AppHeader />
-      <div className="border-b bg-card px-3 py-2 z-[1000] shrink-0 relative">
+
+      {/* Top toolbar */}
+      <div className="border-b bg-card px-4 py-3 z-[1000] shrink-0 relative space-y-3">
+        {/* Title row */}
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <h1 className="font-display text-base font-bold">{t("pickupMap")}</h1>
-            <Badge variant="secondary" className="text-xs">{reports.length}</Badge>
+          <div className="flex items-center gap-2.5">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary/10">
+              <MapPin className="h-4 w-4 text-primary" />
+            </div>
+            <div>
+              <h1 className="font-display text-base font-bold leading-tight">{t("pickupMap")}</h1>
+              <p className="text-xs text-muted-foreground">
+                {reports.length} {t("waypointsCount")}
+              </p>
+            </div>
           </div>
-          <div className="flex gap-1">
-            <Button variant="ghost" size="icon" className="h-8 w-8" onClick={fetchReports}>
-              <RefreshCw className="h-4 w-4" />
-            </Button>
-            <Button variant="outline" size="sm" className="text-xs h-8" onClick={selectAll}>
-              {selected.size === reports.length && reports.length > 0 ? t("deselectAll") : t("selectAll")}
-            </Button>
-          </div>
+          <Button variant="ghost" size="icon" className="h-8 w-8" onClick={fetchReports} title={t("refresh")}>
+            <RefreshCw className="h-4 w-4" />
+          </Button>
         </div>
+
         {/* Filter chips */}
-        <div className="flex gap-1.5 mt-2 overflow-x-auto pb-1">
+        <div className="flex gap-1.5 overflow-x-auto pb-0.5 -mx-1 px-1">
           {filters.map((f) => (
             <Button
               key={f.key}
@@ -327,8 +334,43 @@ const MapView = () => {
             </Button>
           ))}
         </div>
+
+        {/* Selection bar — only visible when there are reports */}
+        {reports.length > 0 && (
+          <div className="flex items-center justify-between bg-muted/50 rounded-lg px-3 py-2 -mx-1">
+            <label className="flex items-center gap-2 cursor-pointer select-none">
+              <Checkbox
+                checked={selected.size === reports.length && reports.length > 0}
+                onCheckedChange={selectAll}
+                className="h-4 w-4"
+              />
+              <span className="text-xs font-medium text-foreground">
+                {selected.size > 0
+                  ? `${selected.size} ${t("selectedCount")}`
+                  : t("selectAll")}
+              </span>
+            </label>
+            {selected.size > 0 && (
+              <div className="flex items-center gap-1">
+                {filter !== "collected" && (
+                  <Button variant="ghost" onClick={markCollected} size="sm" className="h-7 text-xs gap-1 text-primary hover:text-primary">
+                    <CheckCircle className="h-3.5 w-3.5" />
+                    {t("collected")}
+                  </Button>
+                )}
+                {canDelete && (
+                  <Button variant="ghost" onClick={deleteSelected} size="sm" className="h-7 text-xs gap-1 text-destructive hover:text-destructive">
+                    <Trash2 className="h-3.5 w-3.5" />
+                    {t("deleteSelected")}
+                  </Button>
+                )}
+              </div>
+            )}
+          </div>
+        )}
       </div>
 
+      {/* Map */}
       <div className="flex-1 min-h-0 relative z-0 isolate">
         <MapErrorBoundary>
           <MapContainer key={company?.id || "map"} center={defaultCenter} zoom={13} style={{ height: "100%", width: "100%" }}>
@@ -366,33 +408,28 @@ const MapView = () => {
         </MapErrorBoundary>
       </div>
 
-      <div className="shrink-0 bg-card border-t px-3 py-3 z-[1000] safe-area-bottom relative">
+      {/* Bottom action bar */}
+      <div className="shrink-0 bg-card border-t px-4 py-3 z-[1000] safe-area-bottom relative">
         <div className="flex flex-col gap-2 max-w-lg mx-auto">
-          <div className="flex gap-2">
-            <Button onClick={generateRoute} disabled={selected.size === 0 || routeLoading} className="flex-1 h-10 text-sm" size="sm">
-              <Route className="h-4 w-4 mr-1.5" />
-              {routeLoading ? t("calculating") : `${t("route")} (${selected.size})`}
-            </Button>
-            {selected.size > 0 && filter !== "collected" && (
-              <Button variant="outline" onClick={markCollected} size="sm" className="h-10 text-sm">
-                <CheckCircle className="h-4 w-4 mr-1.5" />
-                {t("collected")}
-              </Button>
-            )}
-            {canDelete && (
-              <Button variant="destructive" onClick={deleteSelected} size="sm" className="h-10 text-sm">
-                <Trash2 className="h-4 w-4 mr-1.5" />
-                {t("deleteSelected")}
-              </Button>
-            )}
-          </div>
+          <Button
+            onClick={generateRoute}
+            disabled={selected.size === 0 || routeLoading}
+            className="w-full h-11 text-sm font-semibold"
+          >
+            <Route className="h-4 w-4 mr-2" />
+            {routeLoading
+              ? t("calculating")
+              : selected.size > 0
+                ? `${t("route")} — ${selected.size} ${t("waypointsCount")}`
+                : t("route")}
+          </Button>
           {routeWaypoints.length >= 2 && (
             <div className="flex gap-2">
               <Button variant="secondary" className="flex-1 h-10 text-sm" size="sm" onClick={openInGoogleMaps}>
                 <Navigation className="h-4 w-4 mr-1.5" />
                 {t("openGoogleMaps")}
               </Button>
-              <Button variant="outline" size="sm" className="h-10 text-sm" onClick={openInWaze}>
+              <Button variant="outline" size="sm" className="flex-1 h-10 text-sm" onClick={openInWaze}>
                 <ExternalLink className="h-4 w-4 mr-1.5" />
                 {t("openWaze")}
               </Button>
