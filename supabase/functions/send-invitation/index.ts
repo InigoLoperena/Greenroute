@@ -26,7 +26,7 @@ serve(async (req) => {
         Authorization: `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "Ecoroute <onboarding@resend.dev>",
+        from: "Ecoroute <noreply@greenroute.digital>",
         to: [email],
         subject: `Te han invitado a ${companyName} en Ecoroute`,
         html: `
