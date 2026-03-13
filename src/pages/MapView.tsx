@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
-import { Route, CheckCircle, Navigation, ExternalLink, RefreshCw, Trash2, MapPin, ChevronDown } from "lucide-react";
+import { Route, CheckCircle, Navigation, RefreshCw, Trash2, MapPin, ChevronDown } from "lucide-react";
 import AppHeader from "@/components/AppHeader";
 import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap } from "react-leaflet";
 import L from "leaflet";
@@ -247,11 +247,6 @@ const MapView = () => {
     window.open(url, "_blank");
   };
 
-  const openInWaze = () => {
-    if (routeWaypoints.length < 2) return;
-    const dest = routeWaypoints[routeWaypoints.length - 1];
-    window.open(`https://waze.com/ul?ll=${dest[0]},${dest[1]}&navigate=yes`, "_blank");
-  };
 
   const markCollected = async () => {
     const ids = Array.from(selected);
@@ -424,16 +419,10 @@ const MapView = () => {
                 : t("route")}
           </Button>
           {routeWaypoints.length >= 2 && (
-            <div className="flex gap-2">
-              <Button variant="secondary" className="flex-1 h-10 text-sm" size="sm" onClick={openInGoogleMaps}>
+            <Button variant="secondary" className="flex-1 h-10 text-sm" size="sm" onClick={openInGoogleMaps}>
                 <Navigation className="h-4 w-4 mr-1.5" />
                 {t("openGoogleMaps")}
               </Button>
-              <Button variant="outline" size="sm" className="flex-1 h-10 text-sm" onClick={openInWaze}>
-                <ExternalLink className="h-4 w-4 mr-1.5" />
-                {t("openWaze")}
-              </Button>
-            </div>
           )}
         </div>
       </div>
