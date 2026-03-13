@@ -29,7 +29,7 @@ export const translations = {
     featureRouteDesc: "The shortest route is automatically generated to pass through all reported points.",
     featureCollectTitle: "Collect",
     featureCollectDesc: "The truck follows the optimized route, collects the waste, and marks them as completed.",
-    footerTagline: "Ecoroute — Circular Waste management system",
+    footerTagline: "Greenroute — Circular Waste management system",
     footerProduct: "Product",
     footerCompany: "Company",
     footerAbout: "About us",
