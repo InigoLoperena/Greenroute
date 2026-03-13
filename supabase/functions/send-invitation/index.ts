@@ -26,14 +26,14 @@ serve(async (req) => {
         Authorization: `Bearer ${RESEND_API_KEY}`,
       },
       body: JSON.stringify({
-        from: "Ecoroute <noreply@greenroute.digital>",
+        from: "Greenroute <noreply@greenroute.digital>",
         to: [email],
-        subject: `Te han invitado a ${companyName} en Ecoroute`,
+        subject: `Te han invitado a ${companyName} en Greenroute`,
         html: `
           <div style="font-family:Arial,sans-serif;max-width:480px;margin:0 auto;padding:32px 24px;">
-            <h1 style="color:#16a34a;font-size:24px;">🔄 Ecoroute</h1>
+            <h1 style="color:#16a34a;font-size:24px;">🔄 Greenroute</h1>
             <p style="font-size:16px;color:#333;">¡Hola!</p>
-            <p style="font-size:16px;color:#333;"><strong>${invitedBy || "Un administrador"}</strong> te ha invitado a unirte al equipo <strong>${companyName}</strong> en Ecoroute.</p>
+            <p style="font-size:16px;color:#333;"><strong>${invitedBy || "Un administrador"}</strong> te ha invitado a unirte al equipo <strong>${companyName}</strong> en Greenroute.</p>
             <p style="font-size:16px;color:#333;">Regístrate con este mismo email (<strong>${email}</strong>) para unirte automáticamente al equipo.</p>
             <a href="https://map-my-route-pal.lovable.app/auth?mode=register&invitation=true&company=${encodeURIComponent(companyName)}&invite_email=${encodeURIComponent(email)}" 
                style="display:inline-block;background:#16a34a;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold;margin-top:16px;">

@@ -400,7 +400,7 @@ export const translations = {
     // Dashboard
     myPanel: "Mi panel",
     managementPanel: "Panel de gestión",
-    welcomeTitle: "¡Bienvenido a Ecoroute!",
+    welcomeTitle: "¡Bienvenido a Greenroute!",
     welcomeSubtitle: "¿Cómo vas a utilizar la plataforma?",
     individualUser: "Usuario particular",
     individualUserDesc: "Publica solicitudes de recogida / puja para recoger objetos",
