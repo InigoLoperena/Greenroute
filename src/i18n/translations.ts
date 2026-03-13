@@ -3,7 +3,7 @@ export type Language = "en" | "es";
 export const translations = {
   en: {
     // Common
-    appName: "Ecoroute",
+    appName: "Greenroute",
     loading: "Loading...",
     save: "Save",
     cancel: "Cancel",
