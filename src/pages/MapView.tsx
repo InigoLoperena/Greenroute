@@ -419,16 +419,10 @@ const MapView = () => {
                 : t("route")}
           </Button>
           {routeWaypoints.length >= 2 && (
-            <div className="flex gap-2">
-              <Button variant="secondary" className="flex-1 h-10 text-sm" size="sm" onClick={openInGoogleMaps}>
+            <Button variant="secondary" className="flex-1 h-10 text-sm" size="sm" onClick={openInGoogleMaps}>
                 <Navigation className="h-4 w-4 mr-1.5" />
                 {t("openGoogleMaps")}
               </Button>
-              <Button variant="outline" size="sm" className="flex-1 h-10 text-sm" onClick={openInWaze}>
-                <ExternalLink className="h-4 w-4 mr-1.5" />
-                {t("openWaze")}
-              </Button>
-            </div>
           )}
         </div>
       </div>
