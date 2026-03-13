@@ -247,11 +247,6 @@ const MapView = () => {
     window.open(url, "_blank");
   };
 
-  const openInWaze = () => {
-    if (routeWaypoints.length < 2) return;
-    const dest = routeWaypoints[routeWaypoints.length - 1];
-    window.open(`https://waze.com/ul?ll=${dest[0]},${dest[1]}&navigate=yes`, "_blank");
-  };
 
   const markCollected = async () => {
     const ids = Array.from(selected);
