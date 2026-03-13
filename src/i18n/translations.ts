@@ -3,7 +3,7 @@ export type Language = "en" | "es";
 export const translations = {
   en: {
     // Common
-    appName: "Ecoroute",
+    appName: "Greenroute",
     loading: "Loading...",
     save: "Save",
     cancel: "Cancel",
@@ -29,7 +29,7 @@ export const translations = {
     featureRouteDesc: "The shortest route is automatically generated to pass through all reported points.",
     featureCollectTitle: "Collect",
     featureCollectDesc: "The truck follows the optimized route, collects the waste, and marks them as completed.",
-    footerTagline: "Ecoroute — Circular Waste management system",
+    footerTagline: "Greenroute — Circular Waste management system",
     footerProduct: "Product",
     footerCompany: "Company",
     footerAbout: "About us",
@@ -95,7 +95,7 @@ export const translations = {
     // Dashboard
     myPanel: "My panel",
     managementPanel: "Management panel",
-    welcomeTitle: "Welcome to Ecoroute!",
+    welcomeTitle: "Welcome to Greenroute!",
     welcomeSubtitle: "How will you use the platform?",
     individualUser: "Individual user",
     individualUserDesc: "Post pickup requests / bid to collect items",
@@ -308,7 +308,7 @@ export const translations = {
 
   es: {
     // Common
-    appName: "Ecoroute",
+    appName: "Greenroute",
     loading: "Cargando...",
     save: "Guardar",
     cancel: "Cancelar",
@@ -334,7 +334,7 @@ export const translations = {
     featureRouteDesc: "Se genera automáticamente la ruta más corta para pasar por todos los puntos reportados.",
     featureCollectTitle: "Recoger",
     featureCollectDesc: "El camión sigue la ruta optimizada, recoge los residuos y los marca como completados.",
-    footerTagline: "Ecoroute — Sistema circular de gestión de residuos",
+    footerTagline: "Greenroute — Sistema circular de gestión de residuos",
     footerProduct: "Producto",
     footerCompany: "Empresa",
     footerAbout: "Sobre nosotros",
@@ -400,7 +400,7 @@ export const translations = {
     // Dashboard
     myPanel: "Mi panel",
     managementPanel: "Panel de gestión",
-    welcomeTitle: "¡Bienvenido a Ecoroute!",
+    welcomeTitle: "¡Bienvenido a Greenroute!",
     welcomeSubtitle: "¿Cómo vas a utilizar la plataforma?",
     individualUser: "Usuario particular",
     individualUserDesc: "Publica solicitudes de recogida / puja para recoger objetos",
