@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
-import { Route, CheckCircle, Navigation, ExternalLink, RefreshCw, Trash2, MapPin, ChevronDown } from "lucide-react";
+import { Route, CheckCircle, Navigation, RefreshCw, Trash2, MapPin, ChevronDown } from "lucide-react";
 import AppHeader from "@/components/AppHeader";
 import { MapContainer, TileLayer, Marker, Popup, Polyline, useMap } from "react-leaflet";
 import L from "leaflet";
