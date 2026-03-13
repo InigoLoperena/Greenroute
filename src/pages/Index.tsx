@@ -142,8 +142,8 @@ const Index = () => {
               <h4 className="font-display text-sm font-semibold uppercase tracking-wider text-foreground">{t("footerContact")}</h4>
               <ul className="space-y-2.5 text-sm">
                 <li>
-                   <a href="mailto:info@ecoroute.online" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
-                     <Mail className="h-4 w-4" /> info@ecoroute.online
+                   <a href="mailto:info@greenroute.digital" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+                     <Mail className="h-4 w-4" /> info@greenroute.digital
                    </a>
                 </li>
               </ul>
