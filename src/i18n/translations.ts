@@ -95,7 +95,7 @@ export const translations = {
     // Dashboard
     myPanel: "My panel",
     managementPanel: "Management panel",
-    welcomeTitle: "Welcome to Ecoroute!",
+    welcomeTitle: "Welcome to Greenroute!",
     welcomeSubtitle: "How will you use the platform?",
     individualUser: "Individual user",
     individualUserDesc: "Post pickup requests / bid to collect items",
