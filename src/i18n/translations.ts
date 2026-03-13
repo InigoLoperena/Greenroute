@@ -308,7 +308,7 @@ export const translations = {
 
   es: {
     // Common
-    appName: "Ecoroute",
+    appName: "Greenroute",
     loading: "Cargando...",
     save: "Guardar",
     cancel: "Cancelar",
