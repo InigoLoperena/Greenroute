@@ -35,7 +35,7 @@ serve(async (req) => {
             <p style="font-size:16px;color:#333;">¡Hola!</p>
             <p style="font-size:16px;color:#333;"><strong>${invitedBy || "Un administrador"}</strong> te ha invitado a unirte al equipo <strong>${companyName}</strong> en Greenroute.</p>
             <p style="font-size:16px;color:#333;">Regístrate con este mismo email (<strong>${email}</strong>) para unirte automáticamente al equipo.</p>
-            <a href="https://map-my-route-pal.lovable.app/auth?mode=register&invitation=true&company=${encodeURIComponent(companyName)}&invite_email=${encodeURIComponent(email)}" 
+            <a href="https://greenroute.digital/auth?mode=register&invitation=true&company=${encodeURIComponent(companyName)}&invite_email=${encodeURIComponent(email)}" 
                style="display:inline-block;background:#16a34a;color:white;padding:12px 24px;border-radius:8px;text-decoration:none;font-weight:bold;margin-top:16px;">
               Crear cuenta
             </a>
