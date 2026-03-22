@@ -136,13 +136,13 @@ const Auth = () => {
 
                   <div className="space-y-2">
                     <Label htmlFor="name">
-                      {accountType === "company" ? t("companyNameLabel") : t("fullName")}
+                      {isInvitation ? t("fullName") : accountType === "company" ? t("companyNameLabel") : t("fullName")}
                     </Label>
                     <Input
                       id="name"
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
-                      placeholder={accountType === "company" ? t("companyNamePlaceholder") : t("namePlaceholder")}
+                      placeholder={isInvitation ? t("namePlaceholder") : accountType === "company" ? t("companyNamePlaceholder") : t("namePlaceholder")}
                       required
                     />
                   </div>
