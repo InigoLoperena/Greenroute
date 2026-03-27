@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Recycle, MapPin, Route, Truck, Mail, MessageCircle } from "lucide-react";
 import AppHeader from "@/components/AppHeader";
 import tutorialReport from "@/assets/tutorial-report.png";
+import heroIllustration from "@/assets/hero-illustration.png";
 import tutorialMap from "@/assets/tutorial-map.png";
 
 import valorizationImg from "@/assets/valorization.png";
