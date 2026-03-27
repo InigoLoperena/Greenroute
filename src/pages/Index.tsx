@@ -6,7 +6,7 @@ import { Recycle, MapPin, Route, Truck, Mail, MessageCircle } from "lucide-react
 import AppHeader from "@/components/AppHeader";
 import tutorialReport from "@/assets/tutorial-report.png";
 import tutorialMap from "@/assets/tutorial-map.png";
-import heroIllustration from "@/assets/hero-illustration.png";
+
 import valorizationImg from "@/assets/valorization.png";
 
 const Index = () => {
@@ -42,7 +42,7 @@ const Index = () => {
             </div>
             <div className="w-full md:w-1/2">
               <img
-                src={heroIllustration}
+                src="/lovable-uploads/ed32c693-f4d9-49dd-9c85-a9758595b7ff.png"
                 alt="Greenroute circular waste management"
                 className="w-full h-auto rounded-2xl"
                 loading="lazy"
