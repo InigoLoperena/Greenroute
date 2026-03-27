@@ -9,6 +9,7 @@ import tutorialMap from "@/assets/tutorial-map.png";
 
 import valorizationImg from "@/assets/valorization.png";
 
+
 const Index = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
