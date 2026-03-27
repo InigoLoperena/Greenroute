@@ -6,7 +6,7 @@ import { Recycle, MapPin, Route, Truck, Mail, MessageCircle } from "lucide-react
 import AppHeader from "@/components/AppHeader";
 import tutorialReport from "@/assets/tutorial-report.png";
 import tutorialMap from "@/assets/tutorial-map.png";
-
+import heroIllustration from "@/assets/hero-illustration.png";
 import valorizationImg from "@/assets/valorization.png";
 
 const Index = () => {
