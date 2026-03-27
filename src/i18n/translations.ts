@@ -49,6 +49,8 @@ export const translations = {
     tutorialWmStep2Desc: "See all reported locations on an interactive map with status indicators: pending, in route, or collected.",
     tutorialWmStep3Title: "Optimize & collect",
     tutorialWmStep3Desc: "Generate the optimal route through all reported points. The truck follows the route and marks each point as collected.",
+    valorizationTitle: "Valorization made Easy",
+    valorizationDesc: "Create a circular economy market (feature coming soon) and be an innovative and circular waste management company",
 
     // Tutorial - Marketplace
     tutorialTitle: "For Individuals",
