@@ -42,7 +42,7 @@ const Index = () => {
             </div>
             <div className="w-full md:w-1/2">
               <img
-                src={heroIllustration}
+                src="/lovable-uploads/ed32c693-f4d9-49dd-9c85-a9758595b7ff.png"
                 alt="Greenroute circular waste management"
                 className="w-full h-auto rounded-2xl"
                 loading="lazy"
