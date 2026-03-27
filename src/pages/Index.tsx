@@ -87,10 +87,32 @@ const Index = () => {
               ))}
             </div>
 
-            <div className="mt-16 text-center">
-              <Button size="lg" onClick={() => navigate(user ? "/dashboard" : "/auth?mode=register")}>
-                {t("startFree")}
-              </Button>
+          </div>
+        </section>
+
+        {/* Valorization */}
+        <section className="border-t bg-background">
+          <div className="container mx-auto px-4 py-20">
+            <div className="flex flex-col items-center gap-10 md:flex-row md:gap-16">
+              <div className="w-full md:w-1/2 text-center md:text-left space-y-6">
+                <h2 className="font-display text-3xl font-bold sm:text-4xl">{t("valorizationTitle")}</h2>
+                <p className="text-lg text-muted-foreground">{t("valorizationDesc")}</p>
+                <div className="flex justify-center md:justify-start">
+                  <Button size="lg" onClick={() => navigate(user ? "/dashboard" : "/auth?mode=register")}>
+                    {t("startFree")}
+                  </Button>
+                </div>
+              </div>
+              <div className="w-full md:w-1/2">
+                <div className="rounded-2xl border bg-card shadow-lg overflow-hidden">
+                  <img
+                    src={valorizationImg}
+                    alt="Circular economy market"
+                    className="w-full h-auto"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </section>

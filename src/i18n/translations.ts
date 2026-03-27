@@ -356,6 +356,8 @@ export const translations = {
     tutorialWmStep2Desc: "Ve todas las ubicaciones reportadas en un mapa interactivo con indicadores de estado: pendiente, en ruta o recogido.",
     tutorialWmStep3Title: "Optimiza y recoge",
     tutorialWmStep3Desc: "Genera la ruta óptima por todos los puntos reportados. El camión sigue la ruta y marca cada punto como recogido.",
+    valorizationTitle: "Valorización fácil",
+    valorizationDesc: "Crea un mercado de economía circular (función próximamente) y sé una empresa de gestión de residuos innovadora y circular",
 
     // Tutorial - Marketplace
     tutorialTitle: "Para Particulares",
