@@ -6,6 +6,7 @@ import { Recycle, MapPin, Route, Truck, Mail, MessageCircle } from "lucide-react
 import AppHeader from "@/components/AppHeader";
 import tutorialReport from "@/assets/tutorial-report.png";
 import tutorialMap from "@/assets/tutorial-map.png";
+import heroIllustration from "@/assets/hero-illustration.png";
 
 const Index = () => {
   const { user } = useAuth();
@@ -23,18 +24,28 @@ const Index = () => {
 
       <main className="flex-1">
         {/* Hero */}
-        <section className="container mx-auto px-4 py-20 text-center">
-          <div className="mx-auto max-w-2xl space-y-6">
-            <h1 className="font-display text-4xl font-bold tracking-tight sm:text-5xl">
-              {t("heroTitle")}
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              {t("heroDescription")}
-            </p>
-            <div className="flex justify-center gap-3">
-              <Button size="lg" onClick={() => navigate(user ? "/dashboard" : "/auth?mode=register")}>
-                {t("startFree")}
-              </Button>
+        <section className="container mx-auto px-4 py-20">
+          <div className="flex flex-col items-center gap-10 md:flex-row md:gap-16">
+            <div className="w-full md:w-1/2 text-center md:text-left space-y-6">
+              <h1 className="font-display text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+                {t("heroTitle")}
+              </h1>
+              <p className="text-lg text-muted-foreground">
+                {t("heroDescription")}
+              </p>
+              <div className="flex justify-center md:justify-start gap-3">
+                <Button size="lg" onClick={() => navigate(user ? "/dashboard" : "/auth?mode=register")}>
+                  {t("startFree")}
+                </Button>
+              </div>
+            </div>
+            <div className="w-full md:w-1/2">
+              <img
+                src={heroIllustration}
+                alt="Greenroute circular waste management"
+                className="w-full h-auto rounded-2xl"
+                loading="lazy"
+              />
             </div>
           </div>
         </section>
