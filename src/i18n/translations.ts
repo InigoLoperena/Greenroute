@@ -193,7 +193,7 @@ export const translations = {
     openGoogleMaps: "Google Maps",
     openWaze: "Waze",
     refresh: "Refresh",
-    filterAll: "Active",
+    filterAll: "Not collected",
     filter24h: "Last 24h",
     filter48h: "Last 48h",
     filterCollected: "Collected",
