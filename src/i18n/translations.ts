@@ -500,7 +500,7 @@ export const translations = {
     openGoogleMaps: "Google Maps",
     openWaze: "Waze",
     refresh: "Refrescar",
-    filterAll: "Activos",
+    filterAll: "No recogidos",
     filter24h: "Últimas 24h",
     filter48h: "Últimas 48h",
     filterCollected: "Recogidos",
