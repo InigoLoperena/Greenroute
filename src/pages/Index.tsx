@@ -1,8 +1,10 @@
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "@/hooks/useAuth";
+import { useState } from "react";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { Button } from "@/components/ui/button";
-import { Recycle, MapPin, Route, Truck, Mail, MessageCircle } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Recycle, MapPin, Route, Truck, Mail } from "lucide-react";
+import { toast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
 import AppHeader from "@/components/AppHeader";
 import tutorialReport from "@/assets/tutorial-report.png";
 import heroIllustration from "@/assets/hero-illustration.png";
@@ -12,9 +14,44 @@ import valorizationImg from "@/assets/valorization.png";
 
 
 const Index = () => {
-  const { user } = useAuth();
-  const navigate = useNavigate();
   const { t } = useLanguage();
+  const [email, setEmail] = useState("");
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleJoinWaitlist = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email) return;
+    setSubmitting(true);
+    const { error } = await supabase.from("waitlist").insert({ email });
+    setSubmitting(false);
+    if (error) {
+      if (error.code === "23505") {
+        toast({ title: "You're already on the list!" });
+        setEmail("");
+      } else {
+        toast({ title: "Something went wrong", description: error.message, variant: "destructive" });
+      }
+      return;
+    }
+    toast({ title: "You're on the waitlist!", description: "We'll be in touch about the beta." });
+    setEmail("");
+  };
+
+  const WaitlistForm = ({ className = "" }: { className?: string }) => (
+    <form onSubmit={handleJoinWaitlist} className={`flex flex-col sm:flex-row gap-2 max-w-md ${className}`}>
+      <Input
+        type="email"
+        required
+        placeholder="you@example.com"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        className="flex-1"
+      />
+      <Button type="submit" size="lg" disabled={submitting}>
+        {submitting ? "Joining…" : "Join waitlist to test the beta"}
+      </Button>
+    </form>
+  );
 
   const wmSteps = [
     { img: tutorialReport, title: t("tutorialWmStep1Title"), desc: t("tutorialWmStep1Desc") },
@@ -36,11 +73,7 @@ const Index = () => {
               <p className="text-lg text-muted-foreground">
                 {t("heroDescription")}
               </p>
-              <div className="flex justify-center md:justify-start gap-3">
-                <Button size="lg" onClick={() => navigate(user ? "/dashboard" : "/auth?mode=register")}>
-                  {t("startFree")}
-                </Button>
-              </div>
+              <WaitlistForm className="mx-auto md:mx-0" />
             </div>
             <div className="w-full md:w-1/2">
               <img
@@ -126,11 +159,7 @@ const Index = () => {
               <div className="w-full md:w-1/2 text-center md:text-left space-y-6">
                 <h2 className="font-display text-3xl font-bold sm:text-4xl">{t("valorizationTitle")}</h2>
                 <p className="text-lg text-muted-foreground">{t("valorizationDesc")}</p>
-                <div className="flex justify-center md:justify-start">
-                  <Button size="lg" onClick={() => navigate(user ? "/dashboard" : "/auth?mode=register")}>
-                    {t("startFree")}
-                  </Button>
-                </div>
+                <WaitlistForm className="mx-auto md:mx-0" />
               </div>
               <div className="w-full md:w-1/2">
                 <div className="rounded-2xl border bg-card shadow-lg overflow-hidden">
@@ -169,8 +198,8 @@ const Index = () => {
             <div className="space-y-4">
               <h4 className="font-display text-sm font-semibold uppercase tracking-wider text-foreground">{t("footerProduct")}</h4>
               <ul className="space-y-2.5 text-sm">
-                <li><button onClick={() => navigate(user ? "/report" : "/auth?mode=register")} className="text-muted-foreground hover:text-foreground transition-colors">{t("featureReportTitle")}</button></li>
-                <li><button onClick={() => navigate(user ? "/map" : "/auth?mode=register")} className="text-muted-foreground hover:text-foreground transition-colors">{t("featureRouteTitle")}</button></li>
+                <li><span className="text-muted-foreground">{t("featureReportTitle")}</span></li>
+                <li><span className="text-muted-foreground">{t("featureRouteTitle")}</span></li>
               </ul>
             </div>
 
@@ -192,17 +221,6 @@ const Index = () => {
           </div>
         </div>
       </footer>
-
-      {/* WhatsApp FAB */}
-      <a
-        href="https://api.whatsapp.com/send?phone=34667504944"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg hover:bg-[#20bd5a] transition-colors"
-        aria-label="WhatsApp"
-      >
-        <MessageCircle className="h-7 w-7" />
-      </a>
     </div>
   );
 };
