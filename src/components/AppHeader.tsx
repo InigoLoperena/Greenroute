@@ -22,7 +22,7 @@ const AppHeader = () => {
         </div>
         <div className="flex items-center gap-2">
           <LanguageSwitcher />
-          {user ? (
+          {user && (
             <>
               <Button variant="outline" size="sm" onClick={() => navigate("/dashboard")} title={t("myPanel")}>
                 <Home className="h-4 w-4" />
@@ -36,15 +36,6 @@ const AppHeader = () => {
               </Button>
               <Button variant="ghost" size="sm" onClick={signOut}>
                 <LogOut className="h-4 w-4" />
-              </Button>
-            </>
-          ) : (
-            <>
-              <Button variant="ghost" size="sm" onClick={() => navigate("/auth?mode=login")}>
-                {t("login")}
-              </Button>
-              <Button size="sm" onClick={() => navigate("/auth?mode=register")}>
-                {t("register")}
               </Button>
             </>
           )}
