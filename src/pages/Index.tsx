@@ -7,8 +7,8 @@ import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import AppHeader from "@/components/AppHeader";
 import tutorialReport from "@/assets/tutorial-report.png";
-import heroIllustration from "@/assets/hero-illustration.png";
 import tutorialMap from "@/assets/tutorial-map.png";
+import HeroIllustration from "@/components/HeroIllustration";
 
 import valorizationImg from "@/assets/valorization.png";
 
@@ -76,12 +76,7 @@ const Index = () => {
               <WaitlistForm className="mx-auto md:mx-0" />
             </div>
             <div className="w-full md:w-1/2">
-              <img
-                src={heroIllustration}
-                alt="Greenroute circular waste management"
-                className="w-full h-auto rounded-2xl"
-                loading="lazy"
-              />
+              <HeroIllustration />
             </div>
           </div>
         </section>
