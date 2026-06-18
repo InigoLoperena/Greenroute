@@ -50,7 +50,7 @@ export const translations = {
     tutorialWmStep3Title: "Optimize & collect",
     tutorialWmStep3Desc: "Generate the optimal route through all reported points. The truck follows the route and marks each point as collected.",
     valorizationTitle: "Valorization made Easy",
-    valorizationDesc: "Create a circular economy market (feature coming soon) and be an innovative and circular waste management company",
+   valorizationDesc: "Create a circular economy market and be an innovative and circular waste management company",
 
     // Tutorial - Marketplace
     tutorialTitle: "For Individuals",
@@ -357,7 +357,7 @@ export const translations = {
     tutorialWmStep3Title: "Optimiza y recoge",
     tutorialWmStep3Desc: "Genera la ruta óptima por todos los puntos reportados. El camión sigue la ruta y marca cada punto como recogido.",
     valorizationTitle: "Valorización fácil",
-    valorizationDesc: "Crea un mercado de economía circular (función próximamente) y sé una empresa de gestión de residuos innovadora y circular",
+   valorizationDesc: "Crea un mercado de economía circular y sé una empresa de gestión de residuos innovadora y circular",
 
     // Tutorial - Marketplace
     tutorialTitle: "Para Particulares",
