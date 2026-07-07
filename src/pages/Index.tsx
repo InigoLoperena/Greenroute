@@ -13,6 +13,10 @@ import tutorialMap from "@/assets/tutorial-map.png";
 import valorizationImg from "@/assets/valorization.png";
 
 
+const waitlistSchema = z.object({
+  email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
+});
+
 const Index = () => {
   const { t } = useLanguage();
   const [email, setEmail] = useState("");
@@ -20,9 +24,17 @@ const Index = () => {
 
   const handleJoinWaitlist = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) return;
+    const result = waitlistSchema.safeParse({ email });
+    if (!result.success) {
+      toast({
+        title: "Invalid email",
+        description: result.error.errors[0].message,
+        variant: "destructive",
+      });
+      return;
+    }
     setSubmitting(true);
-    const { error } = await supabase.from("waitlist").insert({ email });
+    const { error } = await supabase.from("waitlist").insert({ email: result.data.email });
     setSubmitting(false);
     if (error) {
       if (error.code === "23505") {
