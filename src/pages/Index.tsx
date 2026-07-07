@@ -5,11 +5,11 @@ import { Input } from "@/components/ui/input";
 import { Recycle, MapPin, Route, Truck, Mail } from "lucide-react";
 import { toast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { z } from "zod";
 import AppHeader from "@/components/AppHeader";
 import tutorialReport from "@/assets/tutorial-report.png";
 import heroIllustration from "@/assets/hero-illustration.png";
 import tutorialMap from "@/assets/tutorial-map.png";
-
 import valorizationImg from "@/assets/valorization.png";
 
 
