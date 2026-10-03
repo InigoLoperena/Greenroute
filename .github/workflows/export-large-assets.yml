@@ -1,0 +1,36 @@
+name: Export Greenroute large assets
+
+on:
+  push:
+    branches:
+      - gpt-audit-improvements
+    paths:
+      - ".github/workflows/export-large-assets.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: gpt-audit-improvements
+
+      - name: Encode large assets
+        run: |
+          rm -rf .gpt-transfer
+          mkdir -p .gpt-transfer
+          base64 -w 0 src/assets/hero-illustration.png | split -b 400000 - .gpt-transfer/hero.b64.part-
+          base64 -w 0 src/assets/tutorial-map.png | split -b 400000 - .gpt-transfer/tutorial-map.b64.part-
+          base64 -w 0 src/assets/tutorial-report.png | split -b 400000 - .gpt-transfer/tutorial-report.b64.part-
+          base64 -w 0 src/assets/valorization.png | split -b 400000 - .gpt-transfer/valorization.b64.part-
+
+      - name: Commit transfer chunks
+        run: |
+          git config user.name "GPT Transfer"
+          git config user.email "actions@users.noreply.github.com"
+          git add .gpt-transfer
+          git commit -m "chore: export Greenroute large assets" || exit 0
+          git push origin gpt-audit-improvements
